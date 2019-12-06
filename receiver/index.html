@@ -1,0 +1,31 @@
+<html>
+
+
+
+<head></head>
+
+<body>
+	<center>
+	<div style="background-color:BLACK;color:white;height:50px;">
+		<center><h3 style="">RTN PORTAL</h3></center>
+	</div>
+	<div style="margin-top:150px">
+		<h4>Enter Station Id</h4>
+		<input style="height:30px;width:200px;" type="password" id="statid" name="statid" required /><br/>
+		<input style="background-color:GREEN;color:white;height:30px;width:100px;" type="submit" onclick="verstat()" id="btnstatid" name="btnstatid"/>
+	</div>
+	</center>
+</body>
+
+<script type="text/javascript">
+	function verstat(){
+		var statid = document.getElementById("statid").value;
+		if(statid=="pk12"){
+			window.location="ver_code.html";
+		}else{
+			alert("wrong");
+		}
+	}
+
+</script>
+</html>

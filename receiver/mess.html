@@ -1,0 +1,52 @@
+<html>
+
+
+
+<head></head>
+
+<body>
+	<center>
+	<div style="background-color:BLACK;color:white;height:50px;">
+		<center><h3 style="">RTN PORTAL</h3></center>
+	</div>
+	<div style="margin-top:150px">
+		<h4>Message Received:</h4>
+		<input id="encmess" name="encmess"
+		/> <br /><br />
+		<h4>Key:</h4>
+		<input type="password" id="key" name="key" placeholder="Key"/><br /><br />
+		<h4>Message: </h4>
+		<h3 id="sen" name="sen"></h3>
+		<h3 id="titon" name="titon"></h3>
+		<h3 id="meson" name="meson"></h3>
+		
+		<input style="background-color:GREEN;color:white;height:30px;width:100px;" value="Verify" type="submit" id="btndec" name="btndec" value="decrypt" onclick="decrypt()"/>
+	</div>
+	</center>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script type="text/javascript">
+	function decrypt(){
+	  //var receiver = document.getElementById("receiver").value;
+	  //var title = document.getElementById("title").value;
+	  //var message = document.getElementById("message").value;
+	  //var finmess = "Receiver: "+receiver+" Title: "+title+" Message: "+message;
+		var secret = document.getElementById("key").value;
+		//secret = "CIPHERKEY";
+		var encmess = document.getElementById("encmess").value;
+        var decipher = CryptoJS.AES.decrypt(encmess, secret);
+        decipher = decipher.toString(CryptoJS.enc.Utf8);
+		var messex = decipher.split('Message:');
+		var meson = messex[1];
+		
+		var title = decipher.split('Title:');
+		var ontit = title[1].split('Message:');
+        //return cipher;
+		//alert(decipher);
+		document.getElementById("sen").innerHTML = "Sender: Landhoo";
+		document.getElementById("titon").innerHTML = "Title: " + ontit[0];
+		document.getElementById("meson").innerHTML = "Message:" +meson;
+	 }
+
+</script>
+</html>

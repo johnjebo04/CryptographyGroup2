@@ -1,0 +1,31 @@
+<html>
+
+
+
+<head></head>
+
+<body>
+	<center>
+	<div style="background-color:BLACK;color:white;height:50px;">
+		<center><h3 style="">RTN PORTAL</h3></center>
+	</div>
+	<div style="margin-top:150px">
+		<h4>Enter Code Sent to you</h4>
+		<input style="height:30px;width:200px;" type="password" id="code" name="code" required /><br/>
+		<input style="background-color:GREEN;color:white;height:30px;width:100px;" onclick="vercode()" value="Verify" type="submit" id="btncode" name="btncode"/>
+	</div>
+	</center>
+</body>
+<script type="text/javascript">
+	function vercode(){
+		var code = document.getElementById("code").value;
+		if(code=="abcd"){
+			window.location="mess.html";
+		}else{
+			alert("wrong");
+		}
+	}
+
+</script>
+
+</html>

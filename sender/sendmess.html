@@ -1,0 +1,45 @@
+<html>
+
+
+
+<head>
+
+</head>
+
+<body>
+	<center>
+	<div style="background-color:BLACK;color:white;height:50px;">
+		<center><h3 style="">RTN PORTAL</h3></center>
+	</div>
+	<div style="margin-top:150px">
+		<h4>Enter Message Information</h4>
+		<input style="height:30px;width:300px;" type="text" id="key" name="key" placeholder="key" required /><br/><br />
+		<input style="height:30px;width:300px;" type="text" id="receiver" name="receiver" placeholder="receiver" required /><br/><br />
+		<input style="height:30px;width:300px;" type="text" id="title" name="title" placeholder="Title" required /><br/><br />
+		<textarea id="message" name="message" style="height:150px;width:300px;"></textarea><br/>
+		
+		<input style="background-color:GREEN;color:white;height:30px;width:100px;" value="Send" type="submit" id="btnsend" name="btnsend" onclick="crypt()"/>
+		<h3 id="gencode" name="gencode"></h3>
+	</div>
+	</center>
+</body>
+<!--<script src="../js/crypto-to.js"> </script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+<script type="text/javascript">	  
+      function crypt(){
+	  var receiver = document.getElementById("receiver").value;
+	  var title = document.getElementById("title").value;
+	  var message = document.getElementById("message").value;
+	  var secret = document.getElementById("key").value;
+	  var finmess = "Receiver: "+receiver+" Title: "+title+" Message: "+message;
+		//secret = "CIPHERKEY";
+        var cipher = CryptoJS.AES.encrypt(finmess, secret);
+        cipher = cipher.toString();
+        //return cipher;
+		document.getElementById("gencode").innerHTML = cipher;
+		//alert(cipher);
+	 }
+</script>
+
+
+</html>
